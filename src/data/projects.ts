@@ -10,15 +10,15 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'digigym',
-    title: 'DigiGYM - El Gimnasio Inteligente',
-    summary: 'Digitalización de bajo costo del peso libre mediante Visión Artificial e IoT para democratizar el fitness inteligente en gimnasios de barrio.',
+    title: 'DigiGYM - The Smart Gym',
+    summary: 'Low-cost digitalization of free weights using Computer Vision and IoT to democratize smart fitness in neighborhood gyms.',
     image: '/images/digigym_cover.png',
     tags: ['React', 'Vite', 'Firebase', 'Python', 'OpenCV', 'IoT'],
     features: [
-      'Edge Computing con visión por computadora para trackeo en tiempo real',
-      'Métricas VBT (Velocity Based Training) avanzadas',
-      'Persistencia Offline y Auth ágil con Firebase',
-      'Leaderboards globales en tiempo real'
+      'Edge Computing with computer vision for real-time tracking',
+      'Advanced VBT (Velocity Based Training) metrics',
+      'Offline persistence and agile Auth with Firebase',
+      'Real-time global leaderboards'
     ]
   },
   {
