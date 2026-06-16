@@ -1,61 +1,23 @@
 import React from 'react';
-
-const experiences = [
-  {
-    company: 'Globant',
-    location: 'Buenos Aires',
-    role: 'Backend .NET Developer',
-    date: 'Aug 2023 – Dec 2025',
-    bullets: [
-      'Built and maintained scalable backend services and REST APIs with .NET Framework & Core, supporting high-traffic enterprise applications.',
-      'Partnered with cross-functional teams to define requirements and consistently ship features on schedule.',
-      'Diagnosed and resolved performance bottlenecks, improving response times and system reliability.',
-      'Led code reviews and mentored peers, building a culture of quality and continuous improvement.',
-    ],
-  },
-  {
-    company: 'UADE',
-    location: 'Buenos Aires',
-    role: 'Fullstack .NET Developer',
-    date: 'Oct 2022 – Aug 2023',
-    bullets: [
-      'Designed, developed, and deployed fullstack web applications with .NET and modern frontend frameworks.',
-      'Translated complex business requirements into robust technical solutions.',
-      'Engineered secure database schemas and data-access layers to ensure data integrity across all services.',
-      'Delivered ongoing UX improvements that boosted user satisfaction and reduced support load.',
-    ],
-  },
-  {
-    company: 'Soulit',
-    location: 'Buenos Aires',
-    role: 'Fullstack .NET Developer',
-    date: 'May 2017 – Sep 2022',
-    bullets: [
-      'Architected and delivered fullstack solutions for a diverse portfolio of business applications, owning features end-to-end.',
-      'Integrated third-party services and payment APIs, expanding platform capabilities and opening new revenue streams.',
-      'Managed the complete SDLC — from requirements and architecture through QA and production deployment.',
-      'Led migration of legacy systems to modern .NET environments, significantly reducing technical debt.',
-    ],
-  },
-];
+import { experiences } from '../data/experience';
+import SectionHeading from './ui/SectionHeading';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+    <section id="experience" className="py-20 relative border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 flex items-center">
-          <span className="w-8 h-1 bg-blue-600 mr-4 rounded-full"></span>
-          Experience
-        </h2>
-        <div className="space-y-12">
+        <SectionHeading title="Experience" colorClass="bg-blue-600" />
+        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 dark:before:via-gray-700 before:to-transparent">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 md:pl-0">
-              {/* Timeline line for mobile */}
-              <div className="md:hidden absolute left-0 top-2 bottom-0 w-px bg-gray-200 dark:bg-gray-700"></div>
-              {/* Timeline dot for mobile */}
-              <div className="md:hidden absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-blue-600"></div>
-
-              <div className="md:grid md:grid-cols-4 md:gap-8 items-start">
+            <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up" data-aos-delay={index * 100}>
+              
+              {/* Timeline marker */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-gray-950 bg-blue-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                <div className="w-2 h-2 rounded-full bg-white"></div>
+              </div>
+              
+              {/* Card */}
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white/70 dark:bg-gray-900/40 backdrop-blur-md border border-white/50 dark:border-gray-800/50 p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:shadow-xl transition-all duration-300">
                 <div className="md:col-span-1 mb-4 md:mb-0">
                   <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">{exp.date}</p>
                   <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center">
