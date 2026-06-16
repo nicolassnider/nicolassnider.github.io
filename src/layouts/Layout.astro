@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { AUTHOR_NAME } from '../config';
 import { ui } from '../data/ui';
 import type { I18nProps } from '../types';
+import AosInit from '../components/AosInit';
 
 type Props = I18nProps;
 
@@ -32,24 +33,6 @@ const t = ui[lang];
 			</p>
 		</footer>
 		
-		<script>
-			import AOS from 'aos';
-			import 'aos/dist/aos.css';
-			
-			// Initialise AOS
-			const initAOS = () => {
-				AOS.init({
-					duration: 800,
-					once: true,
-					offset: 50,
-					easing: 'ease-out-cubic',
-				});
-			};
-			
-			initAOS();
-			
-			// Astro view transitions support
-			document.addEventListener('astro:page-load', initAOS);
-		</script>
+		<AosInit client:load />
 	</body>
 </html>

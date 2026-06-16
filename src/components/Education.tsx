@@ -9,6 +9,15 @@ export default function Education({ lang }: I18nProps) {
   const academicData = academic[lang];
   const languagesData = languages[lang];
 
+  const getThemeClasses = (colorTheme: string) => {
+    const themes: Record<string, string> = {
+      green: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
+      blue: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
+      purple: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400',
+    };
+    return themes[colorTheme] || themes.blue;
+  };
+
   return (
     <section id="education" className="py-20 bg-gray-50/50 dark:bg-gray-900/20 border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -33,7 +42,7 @@ export default function Education({ lang }: I18nProps) {
               {languagesData.map((langItem, idx) => (
                 <div key={idx} className="bg-white/70 dark:bg-gray-800/40 backdrop-blur-md p-4 rounded-xl border border-white/50 dark:border-gray-800/50 flex justify-between items-center shadow-sm">
                   <span className="font-semibold text-gray-900 dark:text-white">{langItem.name}</span>
-                  <span className={`px-3 py-1 bg-${langItem.colorTheme}-100 text-${langItem.colorTheme}-800 dark:bg-${langItem.colorTheme}-900/30 dark:text-${langItem.colorTheme}-400 text-xs font-bold rounded-full`}>{langItem.level}</span>
+                  <span className={`px-3 py-1 ${getThemeClasses(langItem.colorTheme)} text-xs font-bold rounded-full`}>{langItem.level}</span>
                 </div>
               ))}
             </div>

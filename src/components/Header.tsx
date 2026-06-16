@@ -34,10 +34,10 @@ export default function Header({ lang }: I18nProps) {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => {
-            const labelKey = `nav.${link.name.toLowerCase()}` as keyof typeof t;
+            const labelKey = `nav.${link.id}` as keyof typeof t;
             return (
               <a
-                key={link.name}
+                key={link.id}
                 href={link.href}
                 className="text-sm font-medium text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
               >
@@ -73,10 +73,10 @@ export default function Header({ lang }: I18nProps) {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 shadow-lg py-4 px-6 flex flex-col gap-4">
           {navLinks.map((link) => {
-            const labelKey = `nav.${link.name.toLowerCase()}` as keyof typeof t;
+            const labelKey = `nav.${link.id}` as keyof typeof t;
             return (
               <a
-                key={link.name}
+                key={link.id}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors block py-2"
