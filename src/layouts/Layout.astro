@@ -1,18 +1,38 @@
 ---
 import '../styles/global.css';
 import { AUTHOR_NAME } from '../config';
+import { ui } from '../data/ui';
+import type { I18nProps } from '../types';
+import AosInit from '../components/AosInit';
+
+type Props = I18nProps;
+
+const { lang } = Astro.props;
+const t = ui[lang];
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{AUTHOR_NAME} | .NET Developer & Software Engineer</title>
+		<title>{AUTHOR_NAME} | {t['hero.title']}</title>
 	</head>
-	<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+	<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-sans relative selection:bg-blue-500/30">
+		{/* Ambient Background Gradient for Glassmorphism to pop */}
+		<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+			<div class="absolute -top-[40%] -left-[20%] w-[70%] h-[70%] rounded-full bg-blue-500/10 dark:bg-blue-600/10 blur-3xl"></div>
+			<div class="absolute top-[60%] -right-[10%] w-[60%] h-[60%] rounded-full bg-purple-500/10 dark:bg-purple-600/10 blur-3xl"></div>
+		</div>
 		<slot />
+		<footer class="bg-gray-50 dark:bg-gray-950 py-8 border-t border-gray-200 dark:border-gray-800 text-center mt-auto">
+			<p class="text-sm text-gray-500 dark:text-gray-400">
+				&copy; {new Date().getFullYear()} {AUTHOR_NAME}. {lang === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
+			</p>
+		</footer>
+		
+		<AosInit client:load />
 	</body>
 </html>
