@@ -16,13 +16,13 @@ export const academic: Record<'en' | 'es', AcademicInfo> = {
     institution: 'Universidad del Salvador (USAL)',
     degree: 'Bachelor of Science in Computer Engineering',
     location: 'Buenos Aires, Argentina',
-    date: 'Jan 2010 – Jul 2021',
+    date: 'Jan 2010 – Jul 2018',
   },
   es: {
     institution: 'Universidad del Salvador (USAL)',
     degree: 'Ingeniería en Informática',
     location: 'Buenos Aires, Argentina',
-    date: 'Ene 2010 – Jul 2021',
+    date: 'Ene 2010 – Jul 2018',
   }
 };
 
