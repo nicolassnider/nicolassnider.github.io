@@ -1,6 +1,7 @@
 import React from 'react';
 import { projects } from '../data/projects';
 import SectionHeading from './ui/SectionHeading';
+import GitHubIcon from './icons/GitHubIcon';
 import { ui } from '../data/ui';
 import type { I18nProps } from '../types';
 
@@ -29,19 +30,34 @@ export default function Projects({ lang }: I18nProps) {
               data-aos-delay={idx * 150}
             >
               <div className="relative h-48 sm:h-64 overflow-hidden bg-gray-200 dark:bg-gray-800">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-60"></div>
               </div>
               
               <div className="p-6 md:p-8 flex-grow flex flex-col">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-500 transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-800 hover:text-purple-600 dark:text-gray-200 dark:hover:text-purple-400 transition-colors"
+                      aria-label={t['projects.viewSource'].replace('{{project}}', project.title)}
+                    >
+                      <GitHubIcon />
+                    </a>
+                  )}
+                </div>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow leading-relaxed">
                   {project.summary}
                 </p>

@@ -2,9 +2,10 @@ export interface Project {
   id: string;
   title: string;
   summary: string;
-  image: string;
+  image?: string;
   tags: string[];
   features: string[];
+  githubUrl?: string;
 }
 
 export const projects: Record<'en' | 'es', Project[]> = {
@@ -20,7 +21,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Advanced VBT (Velocity Based Training) metrics',
         'Offline persistence and agile Auth with Firebase',
         'Real-time global leaderboards'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/digi-gym_public'
     },
     {
       id: 'corner-click',
@@ -33,7 +35,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Live, low-latency scoring interface for Corner Referees',
         'Role-based access control and frictionless Judge login via PIN',
         'Strict adherence to official ITF Sparring Rules (V2026-1)'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/corner-click_public'
     },
     {
       id: 'gupcheck',
@@ -46,7 +49,29 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Unified Dashboard for the Sabum-Nim with consolidated evaluations',
         'Role-based access using Firebase Auth Custom Claims',
         'Comprehensive Audit Logs for system actions'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/gup-check_public'
+    },
+    {
+      id: 'fenix-web',
+      title: 'Fenix Web',
+      summary: 'Web platform for Fenix projects.',
+      tags: ['React', 'Web'],
+      features: ['Modern UI/UX', 'Responsive design'],
+      githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+    },
+    {
+      id: 'home-media-hub',
+      title: 'Home Media & Automation Center',
+      summary: 'A cost-effective, secure, and professional smart home hub built on legacy hardware utilizing a containerized architecture with Docker.',
+      tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
+      features: [
+        'Hardware Upcycling for legacy systems',
+        'Fully isolated services using Docker Compose',
+        'Secure reverse proxy with Nginx and Tailscale',
+        'Real-time metrics with Prometheus & Grafana'
+      ],
+      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
     }
   ],
   es: [
@@ -61,7 +86,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Métricas VBT (Velocity Based Training) avanzadas',
         'Persistencia Offline y Auth ágil con Firebase',
         'Leaderboards globales en tiempo real'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/digi-gym_public'
     },
     {
       id: 'corner-click',
@@ -74,7 +100,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Interfaz de puntuación en vivo y de baja latencia para Jueces de Esquina',
         'Control de acceso basado en roles e inicio de sesión sin fricción vía PIN',
         'Adherencia estricta a las Reglas Oficiales de Combate ITF (V2026-1)'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/corner-click_public'
     },
     {
       id: 'gupcheck',
@@ -87,7 +114,29 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Dashboard unificado para el Sabum-Nim con evaluaciones consolidadas',
         'Control de acceso por roles usando Firebase Auth Custom Claims',
         'Registros de auditoría exhaustivos para acciones del sistema'
-      ]
+      ],
+      githubUrl: 'https://github.com/nicolassnider/gup-check_public'
+    },
+    {
+      id: 'fenix-web',
+      title: 'Fenix Web',
+      summary: 'Plataforma web para proyectos Fenix.',
+      tags: ['React', 'Web'],
+      features: ['UI/UX moderno', 'Diseño responsivo'],
+      githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+    },
+    {
+      id: 'home-media-hub',
+      title: 'Home Media & Automation Center',
+      summary: 'Un hub de hogar inteligente rentable, seguro y profesional construido sobre hardware heredado utilizando una arquitectura en contenedores con Docker.',
+      tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
+      features: [
+        'Reutilización de hardware para sistemas heredados',
+        'Servicios completamente aislados usando Docker Compose',
+        'Proxy inverso seguro con Nginx y Tailscale',
+        'Métricas en tiempo real con Prometheus y Grafana'
+      ],
+      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
     }
   ]
 };

@@ -9,6 +9,14 @@ export const skills: Record<'en' | 'es', string[]> = {
     'Version Control (Git)',
     'Unit & Integration Testing',
     'Problem-Solving & Critical Thinking',
+    'React, Astro & Vite',
+    'Firebase (Auth, Firestore, Real-time)',
+    'Tailwind CSS',
+    'Python & Computer Vision (OpenCV)',
+    'IoT & Edge Computing',
+    'Docker & Containerization',
+    'Linux & Server Administration',
+    'Home Automation (Home Assistant)',
   ],
   es: [
     'Desarrollo Backend .NET',
@@ -20,5 +28,13 @@ export const skills: Record<'en' | 'es', string[]> = {
     'Control de Versiones (Git)',
     'Pruebas Unitarias y de Integración',
     'Resolución de Problemas y Pensamiento Crítico',
+    'React, Astro y Vite',
+    'Firebase (Auth, Firestore, Real-time)',
+    'Tailwind CSS',
+    'Python y Visión Artificial (OpenCV)',
+    'IoT y Edge Computing',
+    'Docker y Contenerización',
+    'Linux y Administración de Servidores',
+    'Domótica (Home Assistant)',
   ]
 };
