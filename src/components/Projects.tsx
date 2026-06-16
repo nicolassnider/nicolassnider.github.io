@@ -1,6 +1,7 @@
 import React from 'react';
 import { projects } from '../data/projects';
 import SectionHeading from './ui/SectionHeading';
+import GitHubIcon from './icons/GitHubIcon';
 import { ui } from '../data/ui';
 import type { I18nProps } from '../types';
 
@@ -29,12 +30,14 @@ export default function Projects({ lang }: I18nProps) {
               data-aos-delay={idx * 150}
             >
               <div className="relative h-48 sm:h-64 overflow-hidden bg-gray-200 dark:bg-gray-800">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-60"></div>
               </div>
               
@@ -49,9 +52,9 @@ export default function Projects({ lang }: I18nProps) {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-gray-800 hover:text-purple-600 dark:text-gray-200 dark:hover:text-purple-400 transition-colors"
-                      aria-label="View source code on GitHub"
+                      aria-label={t['projects.viewSource'].replace('{{project}}', project.title)}
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
+                      <GitHubIcon />
                     </a>
                   )}
                 </div>

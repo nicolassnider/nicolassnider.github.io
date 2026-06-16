@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   summary: string;
-  image: string;
+  image?: string;
   tags: string[];
   features: string[];
   githubUrl?: string;
@@ -56,10 +56,22 @@ export const projects: Record<'en' | 'es', Project[]> = {
       id: 'fenix-web',
       title: 'Fenix Web',
       summary: 'Web platform for Fenix projects.',
-      image: '',
       tags: ['React', 'Web'],
       features: ['Modern UI/UX', 'Responsive design'],
       githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+    },
+    {
+      id: 'home-media-hub',
+      title: 'Home Media & Automation Center',
+      summary: 'A cost-effective, secure, and professional smart home hub built on legacy hardware utilizing a containerized architecture with Docker.',
+      tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
+      features: [
+        'Hardware Upcycling for legacy systems',
+        'Fully isolated services using Docker Compose',
+        'Secure reverse proxy with Nginx and Tailscale',
+        'Real-time metrics with Prometheus & Grafana'
+      ],
+      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
     }
   ],
   es: [
@@ -109,10 +121,22 @@ export const projects: Record<'en' | 'es', Project[]> = {
       id: 'fenix-web',
       title: 'Fenix Web',
       summary: 'Plataforma web para proyectos Fenix.',
-      image: '',
       tags: ['React', 'Web'],
       features: ['UI/UX moderno', 'Diseño responsivo'],
       githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+    },
+    {
+      id: 'home-media-hub',
+      title: 'Home Media & Automation Center',
+      summary: 'Un hub de hogar inteligente rentable, seguro y profesional construido sobre hardware heredado utilizando una arquitectura en contenedores con Docker.',
+      tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
+      features: [
+        'Reutilización de hardware para sistemas heredados',
+        'Servicios completamente aislados usando Docker Compose',
+        'Proxy inverso seguro con Nginx y Tailscale',
+        'Métricas en tiempo real con Prometheus y Grafana'
+      ],
+      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
     }
   ]
 };

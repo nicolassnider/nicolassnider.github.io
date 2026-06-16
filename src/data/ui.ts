@@ -13,7 +13,8 @@ export const ui = {
     'section.education': 'Education & Languages',
     'education.academic': 'Academic',
     'education.languages': 'Languages',
-    'projects.features': 'Key Features'
+    'projects.features': 'Key Features',
+    'projects.viewSource': 'View source code for {{project}} on GitHub'
   },
   es: {
     'nav.experience': 'Experiencia',
@@ -29,6 +30,7 @@ export const ui = {
     'section.education': 'Educación e Idiomas',
     'education.academic': 'Académico',
     'education.languages': 'Idiomas',
-    'projects.features': 'Características Principales'
+    'projects.features': 'Características Principales',
+    'projects.viewSource': 'Ver código fuente de {{project}} en GitHub'
   }
 } as const;
