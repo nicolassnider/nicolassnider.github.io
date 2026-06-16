@@ -9,18 +9,13 @@ import Education from '../components/Education';
 import { AUTHOR_NAME } from '../config';
 ---
 
-<Layout>
-	<Header client:load />
+<Layout lang="en">
+	<Header client:load lang="en" />
 	<main class="flex-grow">
-		<Hero />
-		<Experience />
-		<Projects />
-		<Skills />
-		<Education />
+		<Hero lang="en" />
+		<Experience lang="en" />
+		<Projects lang="en" />
+		<Skills lang="en" />
+		<Education lang="en" />
 	</main>
-	<footer class="bg-gray-50 dark:bg-gray-950 py-8 border-t border-gray-200 dark:border-gray-800 text-center">
-		<p class="text-sm text-gray-500 dark:text-gray-400">
-			&copy; {new Date().getFullYear()} {AUTHOR_NAME}. All rights reserved.
-		</p>
-	</footer>
 </Layout>

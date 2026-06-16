@@ -1,14 +1,19 @@
 import React from 'react';
-import { experiences } from '../data/experience';
 import SectionHeading from './ui/SectionHeading';
+import { experiences } from '../data/experience';
+import { ui } from '../data/ui';
+import type { I18nProps } from '../types';
 
-export default function Experience() {
+export default function Experience({ lang }: I18nProps) {
+  const t = ui[lang];
+  const experienceData = experiences[lang];
+
   return (
     <section id="experience" className="py-20 relative border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
-        <SectionHeading title="Experience" colorClass="bg-blue-600" />
+        <SectionHeading title={t['section.experience']} colorClass="bg-blue-600" />
         <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 dark:before:via-gray-700 before:to-transparent">
-          {experiences.map((exp, index) => (
+          {experienceData.map((exp, index) => (
             <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up" data-aos-delay={index * 100}>
               
               {/* Timeline marker */}

@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import Hero from '../../components/Hero';
+import Experience from '../../components/Experience';
+import Projects from '../../components/Projects';
+import Skills from '../../components/Skills';
+import Education from '../../components/Education';
+import { AUTHOR_NAME } from '../../config';
+---
+
+<Layout lang="es">
+	<Header client:load lang="es" />
+	<main class="flex-grow">
+		<Hero lang="es" />
+		<Experience lang="es" />
+		<Projects lang="es" />
+		<Skills lang="es" />
+		<Education lang="es" />
+	</main>
+</Layout>
