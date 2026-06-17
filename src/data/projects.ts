@@ -55,15 +55,21 @@ export const projects: Record<'en' | 'es', Project[]> = {
     {
       id: 'fenix-web',
       title: 'Fenix Web',
-      summary: 'Web platform for Fenix projects.',
-      tags: ['React', 'Web'],
-      features: ['Modern UI/UX', 'Responsive design'],
+      summary: 'Official institutional website for Fenix ITF Taekwondo School based in Argentina, providing information about classes, locations, and events.',
+      image: '/images/logo-fenix-web.png',
+      tags: ['React', 'Web', 'Tailwind CSS'],
+      features: [
+        'Institutional presentation and school information',
+        'Modern, responsive UI/UX tailored for students and parents',
+        'Integration with social networks and contact forms'
+      ],
       githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
     },
     {
       id: 'home-media-hub',
       title: 'Home Media & Automation Center',
       summary: 'A cost-effective, secure, and professional smart home hub built on legacy hardware utilizing a containerized architecture with Docker.',
+      image: '/images/automate_cover.png',
       tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
       features: [
         'Hardware Upcycling for legacy systems',
@@ -120,15 +126,21 @@ export const projects: Record<'en' | 'es', Project[]> = {
     {
       id: 'fenix-web',
       title: 'Fenix Web',
-      summary: 'Plataforma web para proyectos Fenix.',
-      tags: ['React', 'Web'],
-      features: ['UI/UX moderno', 'Diseño responsivo'],
+      summary: 'Sitio web institucional oficial para la Escuela de Taekwondo ITF Fenix en Argentina, brindando información sobre clases, sedes y eventos.',
+      image: '/images/logo-fenix-web.png',
+      tags: ['React', 'Web', 'Tailwind CSS'],
+      features: [
+        'Presentación institucional e información de la escuela',
+        'UI/UX moderno y responsivo pensado para alumnos y padres',
+        'Integración con redes sociales y formularios de contacto'
+      ],
       githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
     },
     {
       id: 'home-media-hub',
       title: 'Home Media & Automation Center',
       summary: 'Un hub de hogar inteligente rentable, seguro y profesional construido sobre hardware heredado utilizando una arquitectura en contenedores con Docker.',
+      image: '/images/automate_cover.png',
       tags: ['Docker', 'Home Assistant', 'Node-RED', 'Nginx', 'Prometheus', 'Grafana'],
       features: [
         'Reutilización de hardware para sistemas heredados',
