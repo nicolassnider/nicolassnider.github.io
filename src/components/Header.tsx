@@ -22,7 +22,7 @@ export default function Header({ lang }: I18nProps) {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
-          ? 'bg-white/90 dark:bg-gray-950/90 backdrop-blur-md shadow-sm py-4'
+          ? 'bg-white/80 dark:bg-gray-950/70 backdrop-blur-lg shadow-sm py-4 border-b border-gray-200/50 dark:border-gray-800/50'
           : 'bg-transparent py-6'
       }`}
     >
@@ -71,7 +71,7 @@ export default function Header({ lang }: I18nProps) {
 
       {/* Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 shadow-lg py-4 px-6 flex flex-col gap-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white/80 dark:bg-gray-950/70 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg py-4 px-6 flex flex-col gap-4">
           {navLinks.map((link) => {
             const labelKey = `nav.${link.id}` as keyof typeof t;
             return (
