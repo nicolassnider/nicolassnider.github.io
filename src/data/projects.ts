@@ -9,6 +9,26 @@ export interface Project {
   youtubeUrl?: string;
 }
 
+// Shared URLs
+const URLS = {
+  digigym: {
+    github: 'https://github.com/nicolassnider/digi-gym_public'
+  },
+  cornerClick: {
+    github: 'https://github.com/nicolassnider/corner-click_public',
+    youtube: 'https://www.youtube.com/watch?v=PEGx46k4s44'
+  },
+  gupcheck: {
+    github: 'https://github.com/nicolassnider/gup-check_public'
+  },
+  fenixWeb: {
+    github: 'https://github.com/nicolassnider/fenix_web_public'
+  },
+  homeMediaHub: {
+    github: 'https://github.com/nicolassnider/home_media_automation_public'
+  }
+} as const;
+
 export const projects: Record<'en' | 'es', Project[]> = {
   en: [
     {
@@ -23,7 +43,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Offline persistence and agile Auth with Firebase',
         'Real-time global leaderboards'
       ],
-      githubUrl: 'https://github.com/nicolassnider/digi-gym_public'
+      githubUrl: URLS.digigym.github
     },
     {
       id: 'corner-click',
@@ -37,8 +57,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Role-based access control and frictionless Judge login via PIN',
         'Strict adherence to official ITF Sparring Rules (V2026-1)'
       ],
-      githubUrl: 'https://github.com/nicolassnider/corner-click_public',
-      youtubeUrl: 'https://www.youtube.com/watch?v=PEGx46k4s44'
+      githubUrl: URLS.cornerClick.github,
+      youtubeUrl: URLS.cornerClick.youtube
     },
     {
       id: 'gupcheck',
@@ -52,7 +72,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Role-based access using Firebase Auth Custom Claims',
         'Comprehensive Audit Logs for system actions'
       ],
-      githubUrl: 'https://github.com/nicolassnider/gup-check_public'
+      githubUrl: URLS.gupcheck.github
     },
     {
       id: 'fenix-web',
@@ -65,7 +85,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Modern, responsive UI/UX tailored for students and parents',
         'Integration with social networks and contact forms'
       ],
-      githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+      githubUrl: URLS.fenixWeb.github
     },
     {
       id: 'home-media-hub',
@@ -79,7 +99,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Secure reverse proxy with Nginx and Tailscale',
         'Real-time metrics with Prometheus & Grafana'
       ],
-      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
+      githubUrl: URLS.homeMediaHub.github
     }
   ],
   es: [
@@ -95,7 +115,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Persistencia Offline y Auth ágil con Firebase',
         'Leaderboards globales en tiempo real'
       ],
-      githubUrl: 'https://github.com/nicolassnider/digi-gym_public'
+      githubUrl: URLS.digigym.github
     },
     {
       id: 'corner-click',
@@ -109,8 +129,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Control de acceso basado en roles e inicio de sesión sin fricción vía PIN',
         'Adherencia estricta a las Reglas Oficiales de Combate ITF (V2026-1)'
       ],
-      githubUrl: 'https://github.com/nicolassnider/corner-click_public',
-      youtubeUrl: 'https://www.youtube.com/watch?v=PEGx46k4s44'
+      githubUrl: URLS.cornerClick.github,
+      youtubeUrl: URLS.cornerClick.youtube
     },
     {
       id: 'gupcheck',
@@ -124,7 +144,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Control de acceso por roles usando Firebase Auth Custom Claims',
         'Registros de auditoría exhaustivos para acciones del sistema'
       ],
-      githubUrl: 'https://github.com/nicolassnider/gup-check_public'
+      githubUrl: URLS.gupcheck.github
     },
     {
       id: 'fenix-web',
@@ -137,7 +157,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'UI/UX moderno y responsivo pensado para alumnos y padres',
         'Integración con redes sociales y formularios de contacto'
       ],
-      githubUrl: 'https://github.com/nicolassnider/fenix_web_public'
+      githubUrl: URLS.fenixWeb.github
     },
     {
       id: 'home-media-hub',
@@ -151,7 +171,7 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Proxy inverso seguro con Nginx y Tailscale',
         'Métricas en tiempo real con Prometheus y Grafana'
       ],
-      githubUrl: 'https://github.com/nicolassnider/home_media_automation_public'
+      githubUrl: URLS.homeMediaHub.github
     }
   ]
 };
