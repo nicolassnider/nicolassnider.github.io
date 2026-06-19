@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   features: string[];
   githubUrl?: string;
+  youtubeUrl?: string;
 }
 
 export const projects: Record<'en' | 'es', Project[]> = {
@@ -36,7 +37,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Role-based access control and frictionless Judge login via PIN',
         'Strict adherence to official ITF Sparring Rules (V2026-1)'
       ],
-      githubUrl: 'https://github.com/nicolassnider/corner-click_public'
+      githubUrl: 'https://github.com/nicolassnider/corner-click_public',
+      youtubeUrl: 'https://www.youtube.com/watch?v=PEGx46k4s44'
     },
     {
       id: 'gupcheck',
@@ -107,7 +109,8 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Control de acceso basado en roles e inicio de sesión sin fricción vía PIN',
         'Adherencia estricta a las Reglas Oficiales de Combate ITF (V2026-1)'
       ],
-      githubUrl: 'https://github.com/nicolassnider/corner-click_public'
+      githubUrl: 'https://github.com/nicolassnider/corner-click_public',
+      youtubeUrl: 'https://www.youtube.com/watch?v=PEGx46k4s44'
     },
     {
       id: 'gupcheck',
