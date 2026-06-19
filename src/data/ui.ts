@@ -14,7 +14,10 @@ export const ui = {
     'education.academic': 'Academic',
     'education.languages': 'Languages',
     'projects.features': 'Key Features',
-    'projects.viewSource': 'View source code for {{project}} on GitHub'
+    'projects.viewSource': 'View source code for {{project}} on GitHub',
+    'projects.watchVideo': 'Watch application flow on YouTube',
+    'projects.tooltip.github': 'GitHub',
+    'projects.tooltip.youtube': 'Watch Video'
   },
   es: {
     'nav.experience': 'Experiencia',
@@ -31,6 +34,9 @@ export const ui = {
     'education.academic': 'Académico',
     'education.languages': 'Idiomas',
     'projects.features': 'Características Principales',
-    'projects.viewSource': 'Ver código fuente de {{project}} en GitHub'
+    'projects.viewSource': 'Ver código fuente de {{project}} en GitHub',
+    'projects.watchVideo': 'Ver el flujo de la aplicación en YouTube',
+    'projects.tooltip.github': 'GitHub',
+    'projects.tooltip.youtube': 'Ver video'
   }
 } as const;
