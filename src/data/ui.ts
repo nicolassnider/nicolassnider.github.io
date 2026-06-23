@@ -17,7 +17,8 @@ export const ui = {
     'projects.viewSource': 'View source code for {{project}} on GitHub',
     'projects.watchVideo': 'Watch {{project}} walkthrough on YouTube',
     'projects.tooltip.github': 'GitHub',
-    'projects.tooltip.youtube': 'Watch Video'
+    'projects.tooltip.youtube': 'Watch Video',
+    'projects.demos': 'Live Demos'
   },
   es: {
     'nav.experience': 'Experiencia',
@@ -37,6 +38,7 @@ export const ui = {
     'projects.viewSource': 'Ver código fuente de {{project}} en GitHub',
     'projects.watchVideo': 'Ver video de demostración de {{project}} en YouTube',
     'projects.tooltip.github': 'GitHub',
-    'projects.tooltip.youtube': 'Ver video'
+    'projects.tooltip.youtube': 'Ver video',
+    'projects.demos': 'Demos en Vivo'
   }
 } as const;
