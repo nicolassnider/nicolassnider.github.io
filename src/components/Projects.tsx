@@ -2,6 +2,7 @@ import React from 'react';
 import { projects } from '../data/projects';
 import SectionHeading from './ui/SectionHeading';
 import ProjectCard from './ProjectCard';
+import type { UiStrings } from './ProjectCard';
 import { ui } from '../data/ui';
 import type { I18nProps } from '../types';
 
@@ -23,7 +24,7 @@ export default function Projects({ lang }: I18nProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projectData.map((project, idx) => (
-            <ProjectCard key={project.id} project={project} t={t as Record<string, string>} idx={idx} />
+            <ProjectCard key={project.id} project={project} t={t as UiStrings} idx={idx} />
           ))}
         </div>
       </div>

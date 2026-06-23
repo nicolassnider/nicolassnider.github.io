@@ -3,10 +3,14 @@ import type { Project } from '../data/projects';
 import IconTooltipLink from './ui/IconTooltipLink';
 import GitHubIcon from './icons/GitHubIcon';
 import YoutubeIcon from './icons/YoutubeIcon';
+import ExternalLinkIcon from './icons/ExternalLinkIcon';
+import { ui } from '../data/ui';
+
+export type UiStrings = typeof ui.en;
 
 interface ProjectCardProps {
   project: Project;
-  t: Record<string, string>;
+  t: UiStrings;
   idx: number;
 }
 
@@ -79,15 +83,15 @@ export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
               {t['projects.demos'] || 'Demos'}
             </h4>
             <div className="flex flex-wrap gap-4">
-              {project.demoLinks.map((demo, i) => (
+              {project.demoLinks.map((demo) => (
                 <a
-                  key={i}
+                  key={demo.url}
                   href={demo.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors bg-purple-50 dark:bg-purple-900/20 px-3 py-1.5 rounded-md border border-purple-100 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/40"
                 >
-                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  <ExternalLinkIcon className="w-4 h-4 mr-1.5" />
                   {demo.label}
                 </a>
               ))}
