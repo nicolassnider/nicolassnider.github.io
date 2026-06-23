@@ -7,6 +7,7 @@ export interface Project {
   features: string[];
   githubUrl?: string;
   youtubeUrl?: string;
+  demoLinks?: { label: string; url: string }[];
 }
 
 // Shared URLs
@@ -58,7 +59,11 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Strict adherence to official ITF Sparring Rules (V2026-1)'
       ],
       githubUrl: URLS.cornerClick.github,
-      youtubeUrl: URLS.cornerClick.youtube
+      youtubeUrl: URLS.cornerClick.youtube,
+      demoLinks: [
+        { label: 'Admin Web', url: 'https://cc-web-admin.netlify.app/' },
+        { label: 'Judges App', url: 'https://cc-web-judges.netlify.app/' }
+      ]
     },
     {
       id: 'gupcheck',
@@ -72,7 +77,10 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Role-based access using Firebase Auth Custom Claims',
         'Comprehensive Audit Logs for system actions'
       ],
-      githubUrl: URLS.gupcheck.github
+      githubUrl: URLS.gupcheck.github,
+      demoLinks: [
+        { label: 'Live Demo', url: 'https://gup-check.netlify.app/' }
+      ]
     },
     {
       id: 'fenix-web',
@@ -130,7 +138,11 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Adherencia estricta a las Reglas Oficiales de Combate ITF (V2026-1)'
       ],
       githubUrl: URLS.cornerClick.github,
-      youtubeUrl: URLS.cornerClick.youtube
+      youtubeUrl: URLS.cornerClick.youtube,
+      demoLinks: [
+        { label: 'Web de Administración', url: 'https://cc-web-admin.netlify.app/' },
+        { label: 'App de Jueces', url: 'https://cc-web-judges.netlify.app/' }
+      ]
     },
     {
       id: 'gupcheck',
@@ -144,7 +156,10 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Control de acceso por roles usando Firebase Auth Custom Claims',
         'Registros de auditoría exhaustivos para acciones del sistema'
       ],
-      githubUrl: URLS.gupcheck.github
+      githubUrl: URLS.gupcheck.github,
+      demoLinks: [
+        { label: 'Demo en Vivo', url: 'https://gup-check.netlify.app/' }
+      ]
     },
     {
       id: 'fenix-web',
