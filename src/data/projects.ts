@@ -93,7 +93,10 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'Modern, responsive UI/UX tailored for students and parents',
         'Integration with social networks and contact forms'
       ],
-      githubUrl: URLS.fenixWeb.github
+      githubUrl: URLS.fenixWeb.github,
+      demoLinks: [
+        { label: 'Live Demo', url: 'https://fenixtkdweb.netlify.app/' }
+      ]
     },
     {
       id: 'home-media-hub',
@@ -172,7 +175,10 @@ export const projects: Record<'en' | 'es', Project[]> = {
         'UI/UX moderno y responsivo pensado para alumnos y padres',
         'Integración con redes sociales y formularios de contacto'
       ],
-      githubUrl: URLS.fenixWeb.github
+      githubUrl: URLS.fenixWeb.github,
+      demoLinks: [
+        { label: 'Demo en Vivo', url: 'https://fenixtkdweb.netlify.app/' }
+      ]
     },
     {
       id: 'home-media-hub',
