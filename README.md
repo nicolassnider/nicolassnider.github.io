@@ -1,32 +1,36 @@
-# Astro Starter Kit: Basics
+# Nicolás Snider - Personal Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio website built with Astro, React, and TailwindCSS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Features
 
-## 🚀 Project Structure
+- **Modern Tech Stack**: Built with Astro v6, React 19, and TailwindCSS v4
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Animations**: Smooth scroll animations using AOS (Animate On Scroll)
+- **Multi-language Support**: English and Spanish language support
+- **SEO Optimized**: Includes sitemap generation and proper meta tags
+- **TypeScript**: Full TypeScript support for type safety
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Project Structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   └── robots.txt
+├── src/
+│   ├── components/       # React components (Hero, Experience, Projects, etc.)
+│   ├── data/            # Data files (experience, projects, skills, education)
+│   ├── layouts/         # Astro layout components
+│   ├── pages/           # Page routes
+│   ├── styles/          # Global styles
+│   ├── config.ts        # Site configuration
+│   └── types.ts         # TypeScript type definitions
+├── astro.config.mjs     # Astro configuration
+├── package.json
+└── tsconfig.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -38,9 +42,30 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run lint`            | Run ESLint to check code quality                 |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🛠️ Tech Stack
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Framework**: Astro 6.4.7
+- **UI Library**: React 19.2.7
+- **Styling**: TailwindCSS 4.3.1
+- **Animations**: AOS 2.3.4
+- **Linting**: ESLint with Astro, React, and TypeScript plugins
+- **TypeScript**: Full TypeScript support
+
+## � Content Sections
+
+- **Hero**: Introduction and call-to-action
+- **Experience**: Work experience timeline
+- **Projects**: Featured projects with descriptions and links
+- **Skills**: Technical skills and technologies
+- **Education**: Academic background
+
+## 🚀 Deployment
+
+This site is designed to be deployed as a static site. It can be hosted on:
+- GitHub Pages
+- Netlify
+- Vercel
+- Any static hosting service
