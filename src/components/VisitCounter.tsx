@@ -8,21 +8,31 @@ export default function VisitCounter({ lang }: { lang: string }) {
     const counterUrl = import.meta.env.PUBLIC_COUNTER_URL;
     if (!token || !counterUrl) return;
 
-    const hasVisited = sessionStorage.getItem('has_visited');
+    let hasVisited: string | null = null;
+    try {
+      hasVisited = sessionStorage.getItem('has_visited');
+    } catch {
+      // Storage unavailable; continue without visit state.
+    }
+
     const cleanUrl = counterUrl.replace(/\/$/, '');
     const baseUrl = hasVisited ? cleanUrl : `${cleanUrl}/up`;
 
     const url = `${baseUrl}?token=${encodeURIComponent(token)}`;
 
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res) => res.json().then((data) => ({ res, data })))
+      .then(({ res, data }) => {
         const count = data?.data?.up_count ?? data?.data?.up ?? data?.data?.count;
         if (typeof count === 'number') {
           setVisits(count);
         }
-        if (!hasVisited) {
-          sessionStorage.setItem('has_visited', 'true');
+        if (res.ok && typeof count === 'number' && !hasVisited) {
+          try {
+            sessionStorage.setItem('has_visited', 'true');
+          } catch {
+            // Storage unavailable; ignore setting item.
+          }
         }
       })
       .catch(() => {
