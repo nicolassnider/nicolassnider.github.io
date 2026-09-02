@@ -63,9 +63,15 @@ const t = ui[lang];
 		</div>
 		<slot />
 		<footer class="bg-gray-50 dark:bg-gray-950 py-8 border-t border-gray-200 dark:border-gray-800 text-center mt-auto">
-			<p class="text-sm text-gray-500 dark:text-gray-400">
-				&copy; {new Date().getFullYear()} {AUTHOR_NAME}. {lang === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
-			</p>
+			<div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500 dark:text-gray-400">
+				<p>
+					&copy; {new Date().getFullYear()} {AUTHOR_NAME}. {t['footer.rights']}
+				</p>
+				<p class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400">
+					<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+					{t['footer.lastUpdated']}
+				</p>
+			</div>
 		</footer>
 		
 		<AosInit client:load />
