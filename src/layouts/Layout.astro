@@ -5,6 +5,7 @@ import { ui } from '../data/ui';
 import { skills } from '../data/skills';
 import type { I18nProps } from '../types';
 import AosInit from '../components/AosInit';
+import VisitCounter from '../components/VisitCounter';
 
 type Props = I18nProps;
 
@@ -67,10 +68,13 @@ const t = ui[lang];
 				<p>
 					&copy; {new Date().getFullYear()} {AUTHOR_NAME}. {t['footer.rights']}
 				</p>
-				<p class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400">
-					<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-					{t['footer.lastUpdated']}
-				</p>
+				<div class="flex flex-wrap items-center justify-center gap-3">
+					<VisitCounter client:load lang={lang} />
+					<p class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400">
+						<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+						{t['footer.lastUpdated']}
+					</p>
+				</div>
 			</div>
 		</footer>
 		

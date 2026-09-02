@@ -1,0 +1,46 @@
+import React, { useEffect, useState } from 'react';
+
+export default function VisitCounter({ lang }: { lang: string }) {
+  const [visits, setVisits] = useState<number | null>(null);
+
+  useEffect(() => {
+    const token = import.meta.env.PUBLIC_COUNTER_TOKEN;
+    if (!token) return;
+
+    const hasVisited = sessionStorage.getItem('has_visited');
+    const endpoint = hasVisited
+      ? 'https://api.counterapi.dev/v2/nicolassnider/portfolio'
+      : 'https://api.counterapi.dev/v2/nicolassnider/portfolio/up';
+
+    fetch(endpoint, {
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data?.data?.up ?? data?.data?.count;
+        if (typeof count === 'number') {
+          setVisits(count);
+        }
+        if (!hasVisited) {
+          sessionStorage.setItem('has_visited', 'true');
+        }
+      })
+      .catch(() => {
+        // Silently catch errors
+      });
+  }, []);
+
+  if (visits === null) return null;
+
+  return (
+    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-xs font-medium text-gray-600 dark:text-gray-400">
+      <svg className="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+      <span>{visits.toLocaleString()} {lang === 'es' ? 'visitas' : 'views'}</span>
+    </div>
+  );
+}
