@@ -5,12 +5,12 @@ export default function VisitCounter({ lang }: { lang: string }) {
 
   useEffect(() => {
     const token = import.meta.env.PUBLIC_COUNTER_TOKEN;
-    if (!token) return;
+    const counterUrl = import.meta.env.PUBLIC_COUNTER_URL;
+    if (!token || !counterUrl) return;
 
     const hasVisited = sessionStorage.getItem('has_visited');
-    const baseUrl = hasVisited
-      ? 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/first-counter-5335'
-      : 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/first-counter-5335/up';
+    const cleanUrl = counterUrl.replace(/\/$/, '');
+    const baseUrl = hasVisited ? cleanUrl : `${cleanUrl}/up`;
 
     const url = `${baseUrl}?token=${encodeURIComponent(token)}`;
 

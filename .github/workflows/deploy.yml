@@ -26,6 +26,7 @@ jobs:
           node-version: 22
         env:
           PUBLIC_COUNTER_TOKEN: ${{ secrets.PUBLIC_COUNTER_TOKEN }}
+          PUBLIC_COUNTER_URL: ${{ secrets.PUBLIC_COUNTER_URL }}
 
   deploy:
     needs: build
