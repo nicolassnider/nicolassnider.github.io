@@ -9,8 +9,8 @@ export default function VisitCounter({ lang }: { lang: string }) {
 
     const hasVisited = sessionStorage.getItem('has_visited');
     const baseUrl = hasVisited
-      ? 'https://api.counterapi.dev/v2/nicolassnider/portfolio'
-      : 'https://api.counterapi.dev/v2/nicolassnider/portfolio/up';
+      ? 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/portfolio'
+      : 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/portfolio/up';
 
     const url = `${baseUrl}?token=${encodeURIComponent(token)}`;
 
