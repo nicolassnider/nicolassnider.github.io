@@ -4,7 +4,7 @@ Personal portfolio website built with Astro, React, and TailwindCSS.
 
 ## 🚀 Features
 
-- **Modern Tech Stack**: Built with Astro v6, React 19, and TailwindCSS v4
+- **Modern Tech Stack**: Built with Astro v7, React 19, and TailwindCSS v4
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Animations**: Smooth scroll animations using AOS (Animate On Scroll)
 - **Multi-language Support**: English and Spanish language support
@@ -16,6 +16,8 @@ Personal portfolio website built with Astro, React, and TailwindCSS.
 ```text
 /
 ├── public/
+│   ├── Nicolas_Snider_CV_EN.pdf
+│   ├── Nicolas_Snider_CV_ES.pdf
 │   ├── favicon.ico
 │   ├── favicon.svg
 │   └── robots.txt
@@ -34,38 +36,37 @@ Personal portfolio website built with Astro, React, and TailwindCSS.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project, using `pnpm`:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run lint`            | Run ESLint to check code quality                 |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm install`            | Installs dependencies                            |
+| `pnpm run dev`            | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`          | Build your production site to `./dist/`          |
+| `pnpm run preview`        | Preview your build locally, before deploying     |
+| `pnpm run lint`           | Run ESLint to check code quality                 |
+| `pnpm run knip`           | Run Knip to detect unused files and dependencies |
+| `pnpm run astro ...`      | Run CLI commands like `astro add`, `astro check` |
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Astro 6.4.7
-- **UI Library**: React 19.2.7
-- **Styling**: TailwindCSS 4.3.1
+- **Framework**: Astro 7
+- **UI Library**: React 19
+- **Styling**: TailwindCSS 4
+- **Package Manager**: pnpm
 - **Animations**: AOS 2.3.4
-- **Linting**: ESLint with Astro, React, and TypeScript plugins
+- **Linting & Quality**: ESLint and Knip
 - **TypeScript**: Full TypeScript support
 
-## � Content Sections
+## 📄 Content Sections
 
-- **Hero**: Introduction and call-to-action
+- **Hero**: Introduction, call-to-action, and CV download
 - **Experience**: Work experience timeline
 - **Projects**: Featured projects with descriptions and links
 - **Skills**: Technical skills and technologies
-- **Education**: Academic background
+- **Education**: Academic background and languages
 
 ## 🚀 Deployment
 
-This site is designed to be deployed as a static site. It can be hosted on:
-- GitHub Pages
-- Netlify
-- Vercel
-- Any static hosting service
+This site is designed to be deployed as a static site on GitHub Pages via `.github/workflows/deploy.yml`.
+
