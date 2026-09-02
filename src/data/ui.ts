@@ -18,7 +18,14 @@ export const ui = {
     'projects.watchVideo': 'Watch {{project}} walkthrough on YouTube',
     'projects.tooltip.github': 'GitHub',
     'projects.tooltip.youtube': 'Watch Video',
-    'projects.demos': 'Live Demos'
+    'projects.demos': 'Live Demos',
+    'hero.greeting': "Hi, I'm",
+    'hero.contact': 'Get in touch',
+    'hero.downloadCv': 'Download CV',
+    'nav.menu': 'Menu',
+    'nav.close': 'Close',
+    'footer.lastUpdated': 'Last updated: September 2026',
+    'footer.rights': 'All rights reserved.'
   },
   es: {
     'nav.experience': 'Experiencia',
@@ -39,6 +46,13 @@ export const ui = {
     'projects.watchVideo': 'Ver video de demostración de {{project}} en YouTube',
     'projects.tooltip.github': 'GitHub',
     'projects.tooltip.youtube': 'Ver video',
-    'projects.demos': 'Demos en Vivo'
+    'projects.demos': 'Demos en Vivo',
+    'hero.greeting': 'Hola, soy',
+    'hero.contact': 'Contactar',
+    'hero.downloadCv': 'Descargar CV',
+    'nav.menu': 'Menú',
+    'nav.close': 'Cerrar',
+    'footer.lastUpdated': 'Última actualización: Septiembre de 2026',
+    'footer.rights': 'Todos los derechos reservados.'
   }
 } as const;

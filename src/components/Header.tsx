@@ -64,7 +64,7 @@ export default function Header({ lang }: I18nProps) {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-sm font-medium text-blue-600 dark:text-blue-400 px-2 py-1"
           >
-            {isMobileMenuOpen ? (lang === 'es' ? 'Cerrar' : 'Close') : (lang === 'es' ? 'Menú' : 'Menu')}
+            {isMobileMenuOpen ? t['nav.close'] : t['nav.menu']}
           </button>
         </div>
       </div>
