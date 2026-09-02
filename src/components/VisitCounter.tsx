@@ -9,15 +9,15 @@ export default function VisitCounter({ lang }: { lang: string }) {
 
     const hasVisited = sessionStorage.getItem('has_visited');
     const baseUrl = hasVisited
-      ? 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/portfolio'
-      : 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/portfolio/up';
+      ? 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/first-counter-5335'
+      : 'https://api.counterapi.dev/v2/nicolas-sniders-team-5335/first-counter-5335/up';
 
     const url = `${baseUrl}?token=${encodeURIComponent(token)}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        const count = data?.data?.up ?? data?.data?.count;
+        const count = data?.data?.up_count ?? data?.data?.up ?? data?.data?.count;
         if (typeof count === 'number') {
           setVisits(count);
         }
