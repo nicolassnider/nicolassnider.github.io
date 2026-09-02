@@ -8,15 +8,13 @@ export default function VisitCounter({ lang }: { lang: string }) {
     if (!token) return;
 
     const hasVisited = sessionStorage.getItem('has_visited');
-    const endpoint = hasVisited
+    const baseUrl = hasVisited
       ? 'https://api.counterapi.dev/v2/nicolassnider/portfolio'
       : 'https://api.counterapi.dev/v2/nicolassnider/portfolio/up';
 
-    fetch(endpoint, {
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
-    })
+    const url = `${baseUrl}?token=${encodeURIComponent(token)}`;
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         const count = data?.data?.up ?? data?.data?.count;
