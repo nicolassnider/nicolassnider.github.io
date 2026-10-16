@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { projects } from '../data/projects';
 import type { ProjectCategory } from '../data/projects';
 import SectionHeading from './ui/SectionHeading';
@@ -27,6 +27,13 @@ export default function Projects({ lang }: I18nProps) {
     if (selectedCategory === 'all') return projectData;
     return projectData.filter((p) => p.category === selectedCategory);
   }, [projectData, selectedCategory]);
+
+  // Refresh AOS after filtering to ensure remounted cards are animated
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as unknown as { AOS?: { refresh: () => void } }).AOS) {
+      (window as unknown as { AOS: { refresh: () => void } }).AOS.refresh();
+    }
+  }, [filteredProjects]);
 
   if (!projectData || projectData.length === 0) return null;
 
@@ -58,6 +65,7 @@ export default function Projects({ lang }: I18nProps) {
                 key={option.id}
                 type="button"
                 onClick={() => setSelectedCategory(option.id)}
+                aria-pressed={isSelected}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 ${
                   isSelected
                     ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20 scale-105'

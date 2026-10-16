@@ -38,9 +38,11 @@ export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
 
         {/* Top Badges / Links Overlay */}
         <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white border border-white/20">
-            {project.category.toUpperCase()}
-          </span>
+          {project.category && (
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white border border-white/20">
+              {t[`projects.category.${project.category}` as keyof UiStrings] || project.category.toUpperCase()}
+            </span>
+          )}
 
           <div className="flex gap-2 items-center">
             {project.githubUrl && (
@@ -96,70 +98,72 @@ export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
         )}
 
         {/* Case Study Expander Button */}
-        <div className="mb-5">
-          <button
-            type="button"
-            onClick={() => setIsCaseStudyOpen((prev) => !prev)}
-            aria-expanded={isCaseStudyOpen}
-            className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-800 text-xs font-bold text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700/60 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-          >
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-              {isCaseStudyOpen ? t['projects.hideCaseStudy'] : t['projects.showCaseStudy']}
-            </span>
-            <svg
-              className={`w-4 h-4 transition-transform duration-300 ${
-                isCaseStudyOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : 'text-gray-500'
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {project.caseStudy && (
+          <div className="mb-5">
+            <button
+              type="button"
+              onClick={() => setIsCaseStudyOpen((prev) => !prev)}
+              aria-expanded={isCaseStudyOpen}
+              className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-800 text-xs font-bold text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700/60 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                {isCaseStudyOpen ? t['projects.hideCaseStudy'] : t['projects.showCaseStudy']}
+              </span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  isCaseStudyOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : 'text-gray-500'
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
-          {/* Case Study Details Grid */}
-          {isCaseStudyOpen && (
-            <div className="mt-3 p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 text-xs space-y-3.5 animate-fadeIn">
-              <div>
-                <span className="font-bold text-red-600 dark:text-red-400 block mb-0.5">
-                  • {t['projects.problem']}
-                </span>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
-                  {project.caseStudy.problem}
-                </p>
-              </div>
+            {/* Case Study Details Grid */}
+            {isCaseStudyOpen && (
+              <div className="mt-3 p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 text-xs space-y-3.5 animate-fadeIn">
+                <div>
+                  <span className="font-bold text-red-600 dark:text-red-400 block mb-0.5">
+                    • {t['projects.problem']}
+                  </span>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                    {project.caseStudy.problem}
+                  </p>
+                </div>
 
-              <div>
-                <span className="font-bold text-blue-600 dark:text-blue-400 block mb-0.5">
-                  • {t['projects.contribution']}
-                </span>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
-                  {project.caseStudy.contribution}
-                </p>
-              </div>
+                <div>
+                  <span className="font-bold text-blue-600 dark:text-blue-400 block mb-0.5">
+                    • {t['projects.contribution']}
+                  </span>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                    {project.caseStudy.contribution}
+                  </p>
+                </div>
 
-              <div>
-                <span className="font-bold text-purple-600 dark:text-purple-400 block mb-0.5">
-                  • {t['projects.solution']}
-                </span>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
-                  {project.caseStudy.solution}
-                </p>
-              </div>
+                <div>
+                  <span className="font-bold text-purple-600 dark:text-purple-400 block mb-0.5">
+                    • {t['projects.solution']}
+                  </span>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                    {project.caseStudy.solution}
+                  </p>
+                </div>
 
-              <div>
-                <span className="font-bold text-green-600 dark:text-green-400 block mb-0.5">
-                  • {t['projects.result']}
-                </span>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3 font-medium">
-                  {project.caseStudy.result}
-                </p>
+                <div>
+                  <span className="font-bold text-green-600 dark:text-green-400 block mb-0.5">
+                    • {t['projects.result']}
+                  </span>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3 font-medium">
+                    {project.caseStudy.result}
+                  </p>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
 
         {/* Key Features Bullet Points */}
         <div className="mb-5">

@@ -11,11 +11,11 @@ export interface Project {
   id: string;
   title: string;
   summary: string;
-  category: 'web' | 'iot' | 'devops';
+  category?: 'web' | 'iot' | 'devops';
   image?: string;
   tags: string[];
   features: string[];
-  caseStudy: CaseStudy;
+  caseStudy?: CaseStudy;
   githubUrl?: string;
   youtubeUrl?: string;
   demoLinks?: { label: string; url: string }[];

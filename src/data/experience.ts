@@ -15,7 +15,6 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Backend .NET Developer',
       date: 'Aug 2023 – Dec 2025',
-      isCurrent: true,
       tagKey: 'experience.tag.enterprise',
       bullets: [
         'Built and maintained scalable backend services and REST APIs with .NET Framework and .NET Core, supporting high-traffic enterprise applications.',
@@ -57,7 +56,6 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Desarrollador Backend .NET',
       date: 'Ago 2023 – Dic 2025',
-      isCurrent: true,
       tagKey: 'experience.tag.enterprise',
       bullets: [
         'Construyó y mantuvo servicios backend y APIs REST escalables con .NET Framework y .NET Core, dando soporte a aplicaciones empresariales de alto tráfico.',

@@ -12,13 +12,15 @@ export default function ScrollToTop({ lang }: I18nProps) {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
   };
 

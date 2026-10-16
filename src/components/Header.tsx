@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AUTHOR_NAME } from '../config';
 import { navLinks } from '../data/nav';
 import { ui } from '../data/ui';
@@ -8,6 +8,7 @@ export default function Header({ lang }: I18nProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const t = ui[lang];
 
@@ -44,11 +45,25 @@ export default function Header({ lang }: I18nProps) {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
+        // Return focus to menu button
+        menuButtonRef.current?.focus();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu when entering desktop width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
@@ -77,7 +92,7 @@ export default function Header({ lang }: I18nProps) {
         </a>
 
         {/* Desktop Navigation */}
-        <nav aria-label="Main Navigation" className="hidden md:flex gap-2 items-center">
+        <nav aria-label={t['a11y.mainNav']} className="hidden md:flex gap-2 items-center">
           {navLinks.map((link) => {
             const labelKey = `nav.${link.id}` as keyof typeof t;
             const isActive = activeSection === link.id;
@@ -101,7 +116,7 @@ export default function Header({ lang }: I18nProps) {
           <div className="flex items-center gap-1.5 border-l border-gray-200 dark:border-gray-800 pl-4 ml-2">
             <a
               href="/"
-              aria-label="English language"
+              aria-label={lang === 'en' ? 'Current language: English' : 'Switch to English'}
               className={`text-xs font-bold px-2 py-1 rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                 lang === 'en'
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40'
@@ -113,7 +128,7 @@ export default function Header({ lang }: I18nProps) {
             <span className="text-gray-300 dark:text-gray-700 select-none">|</span>
             <a
               href="/es"
-              aria-label="Idioma Español"
+              aria-label={lang === 'es' ? 'Idioma actual: Español' : 'Cambiar a Español'}
               className={`text-xs font-bold px-2 py-1 rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                 lang === 'es'
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40'
@@ -152,6 +167,7 @@ export default function Header({ lang }: I18nProps) {
           </div>
 
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={toggleMobileMenu}
             aria-expanded={isMobileMenuOpen}
@@ -176,7 +192,7 @@ export default function Header({ lang }: I18nProps) {
       {isMobileMenuOpen && (
         <nav
           id="mobile-navigation"
-          aria-label="Mobile Navigation"
+          aria-label={t['a11y.mobileNav']}
           className="md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 shadow-xl py-5 px-6 flex flex-col gap-2 transition-all duration-200"
         >
           {navLinks.map((link) => {
