@@ -15,7 +15,6 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
 
   return (
@@ -24,20 +23,15 @@ export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
       data-aos="fade-up"
       data-aos-delay={idx * 100}
     >
-      {/* Cover Image with Skeleton Loading */}
-      <div className="relative h-48 sm:h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 animate-pulse"></div>
-        )}
+      {/* Cover Image */}
+      <div className="relative h-48 sm:h-60 overflow-hidden bg-gray-200 dark:bg-gray-800">
         {project.image && (
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
-            onLoad={() => setImageLoaded(true)}
-            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/20 to-transparent pointer-events-none"></div>
