@@ -10,10 +10,10 @@ import Education from '../../components/Education';
 
 <Layout lang="es">
 	<Header client:load lang="es" />
-	<main class="flex-grow">
+	<main id="main-content" tabindex="-1" class="flex-grow">
 		<Hero lang="es" />
 		<Experience lang="es" />
-		<Projects lang="es" />
+		<Projects client:load lang="es" />
 		<Skills lang="es" />
 		<Education lang="es" />
 	</main>
