@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Project } from '../data/projects';
 import IconTooltipLink from './ui/IconTooltipLink';
 import GitHubIcon from './icons/GitHubIcon';
@@ -15,29 +15,39 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+
   return (
-    <div 
-      className="group bg-white/70 dark:bg-gray-900/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/50 dark:border-gray-800/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:shadow-xl transition-all duration-300 flex flex-col"
+    <div
+      className="group bg-white/80 dark:bg-gray-900/50 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-200/70 dark:border-gray-800/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1"
       data-aos="fade-up"
-      data-aos-delay={idx * 150}
+      data-aos-delay={idx * 100}
     >
-      <div className="relative h-48 sm:h-64 overflow-hidden bg-gray-200 dark:bg-gray-800">
+      {/* Cover Image with Skeleton Loading */}
+      <div className="relative h-48 sm:h-60 overflow-hidden bg-gray-100 dark:bg-gray-800">
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 animate-pulse"></div>
+        )}
         {project.image && (
-          <img 
-            src={project.image} 
-            alt={project.title} 
+          <img
+            src={project.image}
+            alt={project.title}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-60"></div>
-      </div>
-      
-      <div className="p-6 md:p-8 flex-grow flex flex-col">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors">
-            {project.title}
-          </h3>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/20 to-transparent pointer-events-none"></div>
+
+        {/* Top Badges / Links Overlay */}
+        <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end">
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white border border-white/20">
+            {project.category.toUpperCase()}
+          </span>
+
           <div className="flex gap-2 items-center">
             {project.githubUrl && (
               <IconTooltipLink
@@ -61,49 +71,123 @@ export default function ProjectCard({ project, t, idx }: ProjectCardProps) {
             )}
           </div>
         </div>
-        <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow leading-relaxed">
+      </div>
+
+      {/* Body Content */}
+      <div className="p-6 md:p-7 flex-grow flex flex-col">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+          {project.title}
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
           {project.summary}
         </p>
-        
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 uppercase tracking-wider">{t['projects.features']}</h4>
-          <ul className="space-y-1">
+
+        {/* Live Demos Bar if present */}
+        {project.demoLinks && project.demoLinks.length > 0 && (
+          <div className="mb-5 flex flex-wrap gap-2.5">
+            {project.demoLinks.map((demo) => (
+              <a
+                key={demo.url}
+                href={demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900/60 px-3.5 py-1.5 rounded-lg border border-blue-200 dark:border-blue-800 transition-all hover:scale-105 shadow-2xs"
+              >
+                <ExternalLinkIcon className="w-3.5 h-3.5 mr-1.5 text-blue-600 dark:text-blue-400" />
+                {demo.label}
+              </a>
+            ))}
+          </div>
+        )}
+
+        {/* Case Study Expander Button */}
+        <div className="mb-5">
+          <button
+            type="button"
+            onClick={() => setIsCaseStudyOpen((prev) => !prev)}
+            aria-expanded={isCaseStudyOpen}
+            className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-gray-100/80 dark:bg-gray-800/50 hover:bg-gray-200/80 dark:hover:bg-gray-800 text-xs font-bold text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700/60 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+              {isCaseStudyOpen ? t['projects.hideCaseStudy'] : t['projects.showCaseStudy']}
+            </span>
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${
+                isCaseStudyOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : 'text-gray-500'
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Case Study Details Grid */}
+          {isCaseStudyOpen && (
+            <div className="mt-3 p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 text-xs space-y-3.5 animate-fadeIn">
+              <div>
+                <span className="font-bold text-red-600 dark:text-red-400 block mb-0.5">
+                  • {t['projects.problem']}
+                </span>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                  {project.caseStudy.problem}
+                </p>
+              </div>
+
+              <div>
+                <span className="font-bold text-blue-600 dark:text-blue-400 block mb-0.5">
+                  • {t['projects.contribution']}
+                </span>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                  {project.caseStudy.contribution}
+                </p>
+              </div>
+
+              <div>
+                <span className="font-bold text-purple-600 dark:text-purple-400 block mb-0.5">
+                  • {t['projects.solution']}
+                </span>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3">
+                  {project.caseStudy.solution}
+                </p>
+              </div>
+
+              <div>
+                <span className="font-bold text-green-600 dark:text-green-400 block mb-0.5">
+                  • {t['projects.result']}
+                </span>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-3 font-medium">
+                  {project.caseStudy.result}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Key Features Bullet Points */}
+        <div className="mb-5">
+          <h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+            {t['projects.features']}
+          </h4>
+          <ul className="space-y-1.5">
             {project.features.slice(0, 3).map((feature, i) => (
-              <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start">
-                <span className="text-purple-500 mr-2 mt-0.5">▹</span>
-                {feature}
+              <li key={i} className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
+                <span className="text-blue-500 dark:text-blue-400 mr-2 font-bold">▹</span>
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {project.demoLinks && project.demoLinks.length > 0 && (
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 uppercase tracking-wider">
-              {t['projects.demos'] || 'Demos'}
-            </h4>
-            <div className="flex flex-wrap gap-4">
-              {project.demoLinks.map((demo) => (
-                <a
-                  key={demo.url}
-                  href={demo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors bg-purple-50 dark:bg-purple-900/20 px-3 py-1.5 rounded-md border border-purple-100 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/40"
-                >
-                  <ExternalLinkIcon className="w-4 h-4 mr-1.5" />
-                  {demo.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
+        {/* Tech Tags */}
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
           {project.tags.map((tag) => (
-            <span 
-              key={tag} 
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full"
+            <span
+              key={tag}
+              className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md"
             >
               {tag}
             </span>

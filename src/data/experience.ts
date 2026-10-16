@@ -3,6 +3,8 @@ export interface ExperienceItem {
   location: string;
   role: string;
   date: string;
+  isCurrent?: boolean;
+  tagKey?: 'experience.tag.enterprise' | 'experience.tag.university' | 'experience.tag.agency';
   bullets: string[];
 }
 
@@ -13,6 +15,8 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Backend .NET Developer',
       date: 'Aug 2023 – Dec 2025',
+      isCurrent: true,
+      tagKey: 'experience.tag.enterprise',
       bullets: [
         'Built and maintained scalable backend services and REST APIs with .NET Framework and .NET Core, supporting high-traffic enterprise applications.',
         'Partnered with cross-functional teams to define requirements and consistently shipped features on schedule.',
@@ -25,6 +29,7 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Fullstack .NET Developer',
       date: 'Oct 2022 – Aug 2023',
+      tagKey: 'experience.tag.university',
       bullets: [
         'Designed, developed, and deployed fullstack web applications using .NET and modern frontend frameworks.',
         'Translated complex business requirements into robust technical solutions.',
@@ -37,6 +42,7 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Fullstack .NET Developer',
       date: 'May 2017 – Sep 2022',
+      tagKey: 'experience.tag.agency',
       bullets: [
         'Architected and delivered fullstack solutions for a diverse portfolio of business applications, owning features end-to-end.',
         'Integrated third-party services and payment APIs, expanding platform capabilities and opening new revenue streams.',
@@ -51,6 +57,8 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Desarrollador Backend .NET',
       date: 'Ago 2023 – Dic 2025',
+      isCurrent: true,
+      tagKey: 'experience.tag.enterprise',
       bullets: [
         'Construyó y mantuvo servicios backend y APIs REST escalables con .NET Framework y .NET Core, dando soporte a aplicaciones empresariales de alto tráfico.',
         'Colaboró con equipos multidisciplinarios para definir requerimientos y entregó funcionalidades de forma consistente dentro de los plazos.',
@@ -63,6 +71,7 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Desarrollador Fullstack .NET',
       date: 'Oct 2022 – Ago 2023',
+      tagKey: 'experience.tag.university',
       bullets: [
         'Diseñó, desarrolló y desplegó aplicaciones web fullstack utilizando .NET y frameworks frontend modernos.',
         'Tradujo requerimientos de negocio complejos en soluciones técnicas robustas.',
@@ -75,6 +84,7 @@ export const experiences: Record<'en' | 'es', ExperienceItem[]> = {
       location: 'Buenos Aires',
       role: 'Desarrollador Fullstack .NET',
       date: 'May 2017 – Sep 2022',
+      tagKey: 'experience.tag.agency',
       bullets: [
         'Diseñó y entregó soluciones fullstack para un portafolio diverso de aplicaciones de negocio, siendo responsable de las funcionalidades de punta a punta.',
         'Integró servicios de terceros y APIs de pago, ampliando las capacidades de la plataforma y habilitando nuevas fuentes de ingreso.',
