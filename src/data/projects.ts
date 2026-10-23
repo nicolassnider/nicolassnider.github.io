@@ -38,6 +38,10 @@ const URLS = {
   },
   homeMediaHub: {
     github: 'https://github.com/nicolassnider/home_media_automation_public'
+  },
+  cancunJournal: {
+    github: 'https://github.com/nicolassnider/viaje_cancun',
+    demo: 'https://cancuneyn26.netlify.app'
   }
 } as const;
 
@@ -157,6 +161,30 @@ export const projects: Record<'en' | 'es', Project[]> = {
         result: 'Achieved 99.9% uptime local home automation with zero external cloud subscriptions and full telemetry observability.'
       },
       githubUrl: URLS.homeMediaHub.github
+    },
+    {
+      id: 'cancun-journal',
+      title: 'Cancún 2026 | Bitácora de Viaje de Nico & Erika',
+      summary: 'An interactive digital scrapbook and travel journal documenting a 4-day Riviera Maya trip using Astro Islands, Polaroid tilt aesthetics, culinary duels, and EXIF photo matching.',
+      category: 'web',
+      image: '/images/cancun_cover.png',
+      tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Netlify'],
+      features: [
+        'Interactive Digital Scrapbook with Polaroid tilt aesthetics, tape effects, and handwritten typography',
+        'Gamified culinary showdown (Nico vs. Erika) with live confetti animations and localStorage voting',
+        'Anecdotes & bloopers carousel featuring interactive reaction counters',
+        'Custom vintage digital postcard creator with WhatsApp direct sharing and EXIF Lightroom photo matching'
+      ],
+      caseStudy: {
+        problem: 'Personal travel memories often get lost in fragmented chat albums and static social posts, lacking chronological storytelling, culinary highlights, and personal anecdotes.',
+        contribution: 'Designed and engineered an engaging, interactive travel journal utilizing Astro 5 Islands architecture, React 19 interactive widgets, and an automated EXIF metadata pipeline.',
+        solution: 'Architected a zero-runtime-overhead static website featuring dynamic client islands for food showdown voting, scrapbook photo tilts, blooper reactions, and Netlify continuous branch previews.',
+        result: 'Created a fast, emotionally engaging digital scrapbook balancing portfolio-level frontend engineering standards with a warm, memorable experience for family and friends.'
+      },
+      githubUrl: URLS.cancunJournal.github,
+      demoLinks: [
+        { label: 'Live Demo', url: URLS.cancunJournal.demo }
+      ]
     }
   ],
   es: [
@@ -274,6 +302,30 @@ export const projects: Record<'en' | 'es', Project[]> = {
         result: '99.9% de disponibilidad operativa en automatización local sin suscripciones a nubes externas y observabilidad total del sistema.'
       },
       githubUrl: URLS.homeMediaHub.github
+    },
+    {
+      id: 'cancun-journal',
+      title: 'Cancún 2026 | Bitácora de Viaje de Nico & Erika',
+      summary: 'Un cuaderno de viaje interactivo y scrapbook digital que documenta una escapada de 4 días a la Riviera Maya con arquitectura Astro Islands, estética Polaroid, duelo culinario y auto-matching EXIF.',
+      category: 'web',
+      image: '/images/cancun_cover.png',
+      tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Netlify'],
+      features: [
+        'Scrapbook digital interactivo con estética Polaroid inclinada, efecto cinta adhesiva y tipografía manuscrita',
+        'Duelo gastronómico gamificado (Nico vs Erika) con animación de confeti y votación en localStorage',
+        'Carrusel de anécdotas y bloopers con contador interactivo de reacciones',
+        'Generador de postales vintage para compartir por WhatsApp y auto-matching de fotos por EXIF de Lightroom'
+      ],
+      caseStudy: {
+        problem: 'Los recuerdos de viaje familiares suelen dispersarse en galerías estáticas o chats de mensajería, perdiendo la narrativa cronológica, los detalles culinarios y el humor detrás de escena.',
+        contribution: 'Diseñé y construí un diario de viaje interactivo aprovechando la arquitectura de islas de Astro 5, componentes dinámicos en React 19 y un pipeline de extracción de metadatos EXIF.',
+        solution: 'Desarrollé una aplicación estática de alto rendimiento con islas interactivas para duelos gastronómicos con confeti, estética visual scrapbook con fotos polaroid inclinadas y despliegue continuo en Netlify.',
+        result: 'Logré una experiencia web rápida y emotiva que conjuga ingeniería frontend de nivel profesional con un scrapbook digital cálido y entretenido para compartir en familia.'
+      },
+      githubUrl: URLS.cancunJournal.github,
+      demoLinks: [
+        { label: 'Demo en Vivo', url: URLS.cancunJournal.demo }
+      ]
     }
   ]
 };
