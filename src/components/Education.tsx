@@ -21,7 +21,7 @@ export default function Education({ lang }: I18nProps) {
   return (
     <section id="education" className="py-20 bg-gray-50/50 dark:bg-gray-900/20 border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
-        <SectionHeading title={t['section.education']} colorClass="bg-green-500" />
+        <SectionHeading number="04" title={t['section.education']} colorClass="bg-green-500" />
         
         <div className="grid md:grid-cols-2 gap-12">
           <div data-aos="fade-up">
