@@ -13,10 +13,11 @@ export default function Projects({ lang }: I18nProps) {
   const projectData = projects[lang];
 
   const categoryCounts = useMemo(() => {
-    if (!projectData) return { all: 0, web: 0, iot: 0, devops: 0 };
+    if (!projectData) return { all: 0, web: 0, data: 0, iot: 0, devops: 0 };
     return {
       all: projectData.length,
       web: projectData.filter((p) => p.category === 'web').length,
+      data: projectData.filter((p) => p.category === 'data').length,
       iot: projectData.filter((p) => p.category === 'iot').length,
       devops: projectData.filter((p) => p.category === 'devops').length
     };
@@ -40,6 +41,7 @@ export default function Projects({ lang }: I18nProps) {
   const filterOptions: { id: ProjectCategory; label: string }[] = [
     { id: 'all', label: t['projects.all'] },
     { id: 'web', label: t['projects.category.web'] },
+    { id: 'data', label: t['projects.category.data'] },
     { id: 'iot', label: t['projects.category.iot'] },
     { id: 'devops', label: t['projects.category.devops'] }
   ];

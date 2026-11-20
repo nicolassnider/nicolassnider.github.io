@@ -50,6 +50,7 @@ export const skillCategories: Record<'en' | 'es', SkillCategory[]> = {
       title: 'AI, IoT & Specialized',
       skills: [
         { name: 'AI & LLMs (Gemini, Claude, Vertex AI)', levelKey: 'skills.mastery.proficient', percentage: 85 },
+        { name: 'Business Intelligence & Data Modeling (Looker Studio)', levelKey: 'skills.mastery.proficient', percentage: 86 },
         { name: 'Python & Computer Vision (OpenCV)', levelKey: 'skills.mastery.proficient', percentage: 82 },
         { name: 'IoT & Edge Computing', levelKey: 'skills.mastery.proficient', percentage: 80 },
         { name: 'Home Automation (Home Assistant)', levelKey: 'skills.mastery.proficient', percentage: 88 }
@@ -95,6 +96,7 @@ export const skillCategories: Record<'en' | 'es', SkillCategory[]> = {
       title: 'IA, IoT y Especializadas',
       skills: [
         { name: 'IA y Modelos de Lenguaje (Gemini, Claude, Vertex AI)', levelKey: 'skills.mastery.proficient', percentage: 85 },
+        { name: 'Business Intelligence y Modelado de Datos (Looker Studio)', levelKey: 'skills.mastery.proficient', percentage: 86 },
         { name: 'Python y Visión Artificial (OpenCV)', levelKey: 'skills.mastery.proficient', percentage: 82 },
         { name: 'IoT y Edge Computing', levelKey: 'skills.mastery.proficient', percentage: 80 },
         { name: 'Domótica (Home Assistant)', levelKey: 'skills.mastery.proficient', percentage: 88 }

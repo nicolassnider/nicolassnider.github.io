@@ -5,13 +5,13 @@ interface CaseStudy {
   result: string;
 }
 
-export type ProjectCategory = 'all' | 'web' | 'iot' | 'devops';
+export type ProjectCategory = 'all' | 'web' | 'iot' | 'devops' | 'data';
 
 export interface Project {
   id: string;
   title: string;
   summary: string;
-  category?: 'web' | 'iot' | 'devops';
+  category?: 'web' | 'iot' | 'devops' | 'data';
   image?: string;
   tags: string[];
   features: string[];
@@ -25,6 +25,11 @@ export interface Project {
 const URLS = {
   digigym: {
     github: 'https://github.com/nicolassnider/digi-gym_public'
+  },
+  biConsulting: {
+    github: 'https://github.com/nicolassnider/bi-consulting-ecommerce-analysis',
+    lookerStudio: 'https://datastudio.google.com/reporting/f018ad32-ad7a-4298-bd32-47886943561f/page/5bIDG',
+    drive: 'https://drive.google.com/drive/folders/14-8eHduYkfBSQloTnHgG2jChtONxZ7hz'
   },
   cornerClick: {
     github: 'https://github.com/nicolassnider/corner-click_public',
@@ -92,6 +97,31 @@ export const projects: Record<'en' | 'es', Project[]> = {
       demoLinks: [
         { label: 'Admin Web', url: 'https://cc-web-admin.netlify.app/' },
         { label: 'Judges App', url: 'https://cc-web-judges.netlify.app/' }
+      ]
+    },
+    {
+      id: 'bi-consulting-ecommerce',
+      title: 'E-Commerce Performance & BI Consulting',
+      summary: 'Comprehensive Business Intelligence consulting project diagnosing revenue concentration, demand seasonality, and cross-selling growth strategies for a regional e-commerce firm.',
+      category: 'data',
+      image: '/images/bi_consulting_cover.png',
+      tags: ['Looker Studio', 'Google Sheets', 'Business Intelligence', 'Data Modeling', 'Storytelling'],
+      features: [
+        'Interactive executive dashboard in Google Looker Studio with real-time KPI tracking',
+        'Data auditing, relational schemas, and BUSCARX cross-referencing in Google Sheets',
+        'Commercial diagnosis: 55%+ revenue concentration in Electronics and quincenal seasonality',
+        'SMART actionable recommendations: cross-selling bundles and mid-month flash campaigns'
+      ],
+      caseStudy: {
+        problem: 'A fast-growing regional e-commerce store suffered from analytical opacity, blind to high revenue concentration risk and severe revenue dips during the second half of the month.',
+        contribution: 'Performed end-to-end data auditing, normalized transactional databases, engineered relational models in Google Sheets, built the interactive Looker Studio dashboard, and crafted executive storytelling slides with actionable SMART recommendations.',
+        solution: 'Developed a robust data pipeline transforming raw transactions and customer catalogs into consolidated models, designed dimensional drill-down charts and master KPIs, and outlined cross-selling bundle strategies.',
+        result: 'Identified critical dependence on high-ticket electronics (over 55% of revenue) and designed a strategic bundle roadmap targeting an average ticket increase from $14,150 to $18,000 ARS.'
+      },
+      githubUrl: URLS.biConsulting.github,
+      demoLinks: [
+        { label: 'Looker Studio Dashboard', url: URLS.biConsulting.lookerStudio },
+        { label: 'Deliverables & Slides (Drive)', url: URLS.biConsulting.drive }
       ]
     },
     {
@@ -233,6 +263,31 @@ export const projects: Record<'en' | 'es', Project[]> = {
       demoLinks: [
         { label: 'Web de Administración', url: 'https://cc-web-admin.netlify.app/' },
         { label: 'App de Jueces', url: 'https://cc-web-judges.netlify.app/' }
+      ]
+    },
+    {
+      id: 'bi-consulting-ecommerce',
+      title: 'Rendimiento E-Commerce & Consultoría BI',
+      summary: 'Proyecto integral de Business Intelligence y Analítica Comercial para resolver la opacidad analítica de un e-commerce en expansión, diagnosticando concentración de ventas y estacionalidad.',
+      category: 'data',
+      image: '/images/bi_consulting_cover.png',
+      tags: ['Looker Studio', 'Google Sheets', 'Business Intelligence', 'Modelado de Datos', 'Storytelling'],
+      features: [
+        'Dashboard interactivo ejecutivo en Google Looker Studio con seguimiento de KPIs clave',
+        'Auditoría de datos, modelos relacionales y cruces con BUSCARX en Google Sheets',
+        'Diagnóstico comercial: más del 55% de ingresos concentrados en Electrónica y estacionalidad quincenal',
+        'Recomendaciones estratégicas SMART: bundles de venta cruzada y promociones de mitad de mes'
+      ],
+      caseStudy: {
+        problem: 'Un e-commerce regional en expansión operaba con opacidad analítica, desconociendo el riesgo de concentración de su catálogo y caídas pronunciadas en la facturación durante la segunda quincena.',
+        contribution: 'Realicé la auditoría y saneamiento de datos crudos, modelado relacional en Google Sheets, diseño del dashboard interactivo en Looker Studio y presentación ejecutiva en 7 actos con recomendaciones SMART.',
+        solution: 'Diseñé un flujo analítico integral desde fuentes CSV crudas hasta un modelo consolidado y visualización dimensional en Looker Studio con indicadores clave (Facturación, Ticket Promedio y Pedidos).',
+        result: 'Se detectó que Electrónica concentra más del 55% de los ingresos y el 70% de las ventas ocurre en los primeros 11 días; se propuso un plan de venta cruzada para elevar el ticket promedio a $18.000 ARS.'
+      },
+      githubUrl: URLS.biConsulting.github,
+      demoLinks: [
+        { label: 'Dashboard en Looker Studio', url: URLS.biConsulting.lookerStudio },
+        { label: 'Entregables y Presentación (Drive)', url: URLS.biConsulting.drive }
       ]
     },
     {
