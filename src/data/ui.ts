@@ -52,7 +52,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.close': 'Close',
     'footer.builtWith': 'Built with Astro, React & Tailwind CSS',
-    'footer.lastUpdated': 'Last updated: October 2026',
+    'footer.lastUpdated': 'Last updated: November 2026',
     'footer.rights': 'All rights reserved.'
   },
   es: {
@@ -108,7 +108,7 @@ export const ui = {
     'nav.menu': 'Menú',
     'nav.close': 'Cerrar',
     'footer.builtWith': 'Construido con Astro, React y Tailwind CSS',
-    'footer.lastUpdated': 'Última actualización: Octubre de 2026',
+    'footer.lastUpdated': 'Última actualización: Noviembre de 2026',
     'footer.rights': 'Todos los derechos reservados.'
   }
 } as const;
