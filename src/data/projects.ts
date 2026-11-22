@@ -23,6 +23,10 @@ export interface Project {
 
 // Shared URLs
 const URLS = {
+  hiringAudit: {
+    github: 'https://github.com/nicolassnider/contratacion_relx_public',
+    demo: 'https://contrataciondev.netlify.app/'
+  },
   obspred: {
     github: 'https://github.com/nicolassnider/obspred_public'
   },
@@ -146,6 +150,30 @@ export const projects: Record<'en' | 'es', Project[]> = {
       demoLinks: [
         { label: 'Looker Studio Dashboard', url: URLS.biConsulting.lookerStudio },
         { label: 'Deliverables & Slides (Drive)', url: URLS.biConsulting.drive }
+      ]
+    },
+    {
+      id: 'hiring-compliance-audit',
+      title: 'Forensic Hiring Analytics & Compliance Audit',
+      summary: 'Data analytics case study and forensic audit on an international enterprise hiring process, modeling purchasing power depreciation via Banxico API and mapping corporate compliance risks.',
+      category: 'data',
+      image: '/images/hiring_audit_cover.png',
+      tags: ['Data Analytics', 'Banxico API', 'Financial Modeling', 'Process Mining', 'Compliance Audit', 'TypeScript'],
+      features: [
+        'Live integration with Banco de México (Banxico SIE API) for official inflation (INPC) time-series',
+        'Quantitative econometric compensation deflator and real-time salary adjustment calculator',
+        'Forensic process mining structuring +220 days and 90+ verified communications into an auditable event log',
+        'Corporate risk matrix systematically classifying 8 governance red flags and compliance failures'
+      ],
+      caseStudy: {
+        problem: 'Cross-border enterprise hiring workflows often suffer from operational silos, regulatory opacity, and procedural delays, causing salary depreciation and legal compliance exposure.',
+        contribution: 'Architected the forensic audit model, integrated live macroeconomic APIs, engineered the econometric compensation deflator, and developed the interactive analytical platform.',
+        solution: 'Built an interactive data platform featuring native SVG Spline Bézier inflation curves, dynamic salary purchasing power simulators, and multi-entity organizational bottleneck mapping.',
+        result: 'Transformed 90+ unstructured communications into an auditable business intelligence dashboard, quantifying cumulative opportunity loss and demonstrating proactive compliance risk mitigation.'
+      },
+      githubUrl: URLS.hiringAudit.github,
+      demoLinks: [
+        { label: 'Interactive Case Study', url: URLS.hiringAudit.demo }
       ]
     },
     {
@@ -333,6 +361,30 @@ export const projects: Record<'en' | 'es', Project[]> = {
       demoLinks: [
         { label: 'Dashboard en Looker Studio', url: URLS.biConsulting.lookerStudio },
         { label: 'Entregables y Presentación (Drive)', url: URLS.biConsulting.drive }
+      ]
+    },
+    {
+      id: 'hiring-compliance-audit',
+      title: 'Auditoría Analítica de Contratación & Compliance',
+      summary: 'Estudio de caso forense y plataforma de analítica de datos sobre un proceso de contratación corporativa internacional, modelando pérdida de poder adquisitivo vía API Banxico y matriz de riesgos de compliance.',
+      category: 'data',
+      image: '/images/hiring_audit_cover.png',
+      tags: ['Data Analytics', 'API Banxico', 'Modelado Financiero', 'Process Mining', 'Auditoría Compliance', 'TypeScript'],
+      features: [
+        'Integración en tiempo real con API SIE de Banxico para series oficiales de inflación (INPC)',
+        'Modelado econométrico de deflactación salarial y cálculo dinámico de pérdida de poder adquisitivo',
+        'Minería de procesos forense sobre +220 días de trazabilidad y 90+ comunicaciones formales',
+        'Matriz de gobernanza corporativa clasificando 8 banderas rojas de riesgo y compliance legal'
+      ],
+      caseStudy: {
+        problem: 'Los procesos de contratación corporativa transnacional suelen padecer silos departamentales y dilaciones operativas que generan contingencias de compliance y depreciación salarial.',
+        contribution: 'Diseñé la arquitectura analítica forense, construí la integración a la API de Banxico, modelé las fórmulas econométricas de pérdida salarial y desarrollé la plataforma interactiva.',
+        solution: 'Desarrollé una plataforma analítica en Astro y TypeScript con trazado matemático de curvas Bézier en SVG, simulador dinámico de reajuste salarial y mapeo organizacional de cuellos de botella entre filiales internacionales.',
+        result: 'Consolidación de un expediente forense auditable y tablero de BI que cuantifica el costo de oportunidad, documenta 3 fechas de ingreso fallidas y previene sanciones legales por debida diligencia.'
+      },
+      githubUrl: URLS.hiringAudit.github,
+      demoLinks: [
+        { label: 'Caso de Estudio en Vivo', url: URLS.hiringAudit.demo }
       ]
     },
     {
