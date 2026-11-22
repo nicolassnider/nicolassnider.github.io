@@ -23,6 +23,9 @@ export interface Project {
 
 // Shared URLs
 const URLS = {
+  obspred: {
+    github: 'https://github.com/nicolassnider/obspred_public'
+  },
   digigym: {
     github: 'https://github.com/nicolassnider/digi-gym_public'
   },
@@ -72,6 +75,27 @@ export const projects: Record<'en' | 'es', Project[]> = {
         result: 'Delivered sub-50ms velocity tracking feedback on standard webcams, democratizing advanced strength training metrics at under 10% of commercial hardware cost.'
       },
       githubUrl: URLS.digigym.github
+    },
+    {
+      id: 'obspred',
+      title: 'Predictive Labor & Education Observatory',
+      summary: 'Predictive intelligence web platform analyzing socioeconomic, labor, and education trends to guide public policies and vocational training across Argentina, Uruguay, and Chile.',
+      category: 'data',
+      image: '/images/obspred_cover.png',
+      tags: ['FastAPI', 'Python', 'Clean Architecture', 'PostgreSQL', 'Docker', 'Data Pipelines'],
+      features: [
+        'Multidimensional Employability Index (0–100) across strategic productive sectors',
+        'Skills Gap Analysis engine contrasting market demand with educational supply',
+        'Automated ingestion pipelines for official APIs (World Bank, ILOSTAT, CEPALSTAT, SIMEL)',
+        'Strict data lineage and zero-imputation policy ensuring maximum methodological transparency'
+      ],
+      caseStudy: {
+        problem: 'Evidence-based decision-making in employment policies and educational planning is severely hindered by fragmented public statistical records and siloed reporting across the region.',
+        contribution: 'Engineered the decoupled backend API in Python/FastAPI using Clean Architecture and SOLID principles, built automated ingestion connectors for international/national data APIs, and designed the relational PostgreSQL schema.',
+        solution: 'Architected a scalable, modular RESTful platform integrating live statistical feeds, semantic standardization of occupational taxonomies (ISCO/CIUO), and an auditable employability score computation engine.',
+        result: 'Centralized key indicators across 5 strategic sectors and 20 prioritized occupations into actionable, auditable dashboards for public policymakers and educational planners.'
+      },
+      githubUrl: URLS.obspred.github
     },
     {
       id: 'corner-click',
@@ -238,6 +262,27 @@ export const projects: Record<'en' | 'es', Project[]> = {
         result: 'Logró feedback de velocidad en menos de 50ms usando cámaras estándar, democratizando métricas de fuerza avanzada a menos del 10% del costo comercial.'
       },
       githubUrl: URLS.digigym.github
+    },
+    {
+      id: 'obspred',
+      title: 'Observatorio Predictivo Laboral y Educativo',
+      summary: 'Plataforma web de inteligencia prospectiva desarrollada con el Gobierno de la Ciudad de Buenos Aires (innova.lab) para anticipar tendencias de empleo, brechas de habilidades y orientar políticas públicas en Argentina, Uruguay y Chile.',
+      category: 'data',
+      image: '/images/obspred_cover.png',
+      tags: ['FastAPI', 'Python', 'Clean Architecture', 'PostgreSQL', 'Docker', 'Data Pipelines'],
+      features: [
+        'Índice de Empleabilidad multidimensional (0–100) en sectores productivos estratégicos',
+        'Motor de detección temprana de brechas de habilidades (demanda laboral vs. oferta formativa)',
+        'Pipelines automatizados de ingesta para APIs oficiales (Banco Mundial, OIT/ILOSTAT, CEPALSTAT, SIMEL)',
+        'Trazabilidad metodológica estricta y principio de honestidad del dato sin imputaciones arbitrarias'
+      ],
+      caseStudy: {
+        problem: 'La toma de decisiones en formación y empleo se ve obstaculizada por la fragmentación de datos oficiales y la falta de taxonomías homogéneas entre organismos regionales.',
+        contribution: 'Diseñé e implementé la arquitectura backend con FastAPI y Python bajo Clean Architecture y principios SOLID, construí los conectores de ingesta a APIs oficiales y modelé la base de datos relacional en PostgreSQL.',
+        solution: 'Desarrollé una API modular y escalable con controladores delgados, persistencia asíncrona, validación estricta de contratos con Pydantic y armonización semántica de clasificaciones internacionales (CIUO/ISCO).',
+        result: 'Consolidación de métricas de 5 sectores estratégicos y 20 ocupaciones clave en tableros accionables con linaje verificable, facilitando la toma de decisiones basada en evidencia empírica.'
+      },
+      githubUrl: URLS.obspred.github
     },
     {
       id: 'corner-click',
